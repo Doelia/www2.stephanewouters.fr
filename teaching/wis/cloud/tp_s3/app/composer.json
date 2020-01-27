@@ -1,0 +1,12 @@
+{
+    "name": "stephane/tp_s3",
+    "authors": [
+        {
+            "name": "Doelia",
+            "email": "kyxalia@gmail.com"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.133"
+    }
+}
