@@ -1,0 +1,19 @@
+<div>
+  Afficher la météo d'une commune :
+  <input type="text" [(ngModel)]="city" placeholder="Montpellier" >
+  <input type="submit" (click)="loadWeather()" value="Envoyer">
+</div>
+
+<div *ngIf="weatherDatas">
+  <h2>Météo sur {{ weatherDatas.name }}</h2>
+  <img src="http://openweathermap.org/img/w/{{ weatherDatas.weather[0].icon }}.png" alt="" style="float: left; margin-right: 30px;">
+  <ul>
+    <li>
+      Température : {{ weatherDatas.main.temp }}°
+    </li>
+    <li>
+      Vent : {{ weatherDatas.wind.speed}} m/s
+    </li>
+  </ul>
+</div>
+
