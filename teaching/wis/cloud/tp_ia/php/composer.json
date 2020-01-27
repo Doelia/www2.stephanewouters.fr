@@ -1,0 +1,14 @@
+{
+    "name": "stephane/tp3_ia",
+    "authors": [
+        {
+            "name": "Doelia",
+            "email": "kyxalia@gmail.com"
+        }
+    ],
+    "require": {
+        "google/cloud-vision": "^0.24.1",
+        "google/cloud-natural-language": "^0.21.0",
+        "google/cloud": "^0.122.0"
+    }
+}
