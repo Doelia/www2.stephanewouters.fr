@@ -1,0 +1,9 @@
+<div *ngFor="let hotel of hotels">
+  <h1>
+    {{ hotel.name }}
+  </h1>
+  <div *ngFor="let p of hotel.photos">
+    <img src="{{ p.url }}" alt="" style="max-width: 200px; float: left; margin: 10px; ">
+  </div>
+  <div style="clear: both"></div>
+</div>
