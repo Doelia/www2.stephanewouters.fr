@@ -4,171 +4,19 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"/>
+    <link rel="stylesheet" href="/teaching/wis/cloud/styles.css"/>
     <title>WIS / Cloud et Système web</title>
+    <!-- 🐼 -->
 </head>
 <body>
 <style>
 
-    body {
-        background-color: whitesmoke;
-        font-family: 'Open Sans', sans-serif;
-    }
-
-    a, a:hover {
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        -ms-transition: all .3s;
-        -o-transition: all .3s;
-        transition: all .3s;
-    }
-
-    a {
-        color: #01a3a4;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: #00d2d3;
-    }
-
-    .correction {
-        color: #26de81;
-    }
-
-    .correction:hover {
-        color: #20bf6b;
-    }
-
-    h1 {
-        font-weight: 700;
-        font-size: 30px;
-    }
-
-    section {
-        background-color: white;
-        margin: 20px 100px 0 100px;
-        padding: 30px 100px;
-        -webkit-border-radius: 5px 5px 0 0;
-        -moz-border-radius: 5px 5px 0 0;
-        border-radius: 5px 5px 0 0;
-    }
-
-    footer {
-        background-color: #2bcbba;
-        margin: 0 100px 20px 100px;
-        padding: 30px 100px;
-        display: flex;
-        justify-content: space-around;
-        -webkit-border-radius: 0 0 5px 5px;
-        -moz-border-radius: 0 0 5px 5px;
-        border-radius: 0 0 5px 5px;
-    }
-
-    footer a {
-        color: white;
-        box-shadow: inset 0 -15px 0 #0fb9b1;
-        padding: 5px;
-        display: inline-block;
-    }
-
-    footer a:hover {
-        color: white;
-        box-shadow: inset 0 -30px 0 #0FB0A8;
-    }
-
-    ol {
-        list-style-type: upper-roman;
-        color: #333;
-        line-height: 1.7;
-    }
-
-    li.reset {
-        list-style-type: none;
-    }
-
-    ol > li {
-        font-weight: 700;
-    }
-
-    ul {
-        font-weight: normal;
-        list-style: none;
-        padding: 0;
-    }
-
-    ul > li::before {
-        content: '▂';
-        color: #eee;
-        margin-right: 10px;
-        position: relative;
-        bottom: 6px;
-    }
-
-    @media screen and (max-width: 900px) {
-        section {
-            margin: 20px 40px 0 40px;
-            padding: 30px 50px;
-        }
-
-        footer {
-            background-color: #fc5c65;
-            margin: 0 40px 20px 40px;
-            padding: 30px 50px;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        footer a {
-            box-shadow: inset 0 -15px 0 #FC4E56;
-        }
-
-        footer a:hover {
-            box-shadow: inset 0 -30px 0 #eb3b5a;
-        }
-
-        a {
-            color: #fc5c65;
-        }
-
-        a:hover {
-            color: #eb3b5a;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        section {
-            margin: 20px 20px 0 20px;
-            padding: 30px;
-        }
-
-        footer {
-            background-color: #fed330;
-            margin: 0 20px 20px 20px;
-            padding: 30px;
-        }
-
-        footer a {
-            box-shadow: inset 0 -15px 0 #FECB01;
-        }
-
-        footer a:hover {
-            box-shadow: inset 0 -30px 0 #f7b731;
-        }
-
-        a {
-            color: #fd9644;
-        }
-
-        a:hover {
-            color: #f7b731;
-        }
-    }
 </style>
 
 <section>
     <h1 class="aniview" data-av-animation="bounce">Cloud et Système web</h1>
-    <ol>
-        <li>Introduction au Cloud
+    <ul>
+        <li>I. Introduction au Cloud
             <ul>
                 <li><a href="https://slides.com/doelia/architecture-client-serveur-299735#/">Slides</a>
                     <a href="/teaching/wis/cloud/slides/I.INTRO-AU-CLOUD.pdf">(PDF)</a>
@@ -176,7 +24,7 @@
                 <li><a href="https://docs.google.com/document/d/1-uhisxKfEY7R6GFKC_8jrmG4OgIS52TsaKHrbPKvdHg/edit">TD1 : Niveaux de cloud</a></li>
             </ul>
         </li>
-        <li>Architecture Client Serveur
+        <li>II. Architecture Client Serveur
             <ul>
                 <li><a href="https://slides.com/doelia/architecture-client-serveur">Slides</a>
                     <a href="/teaching/wis/cloud/slides/II-ARCHI-CLIENT-SERVEUR.pdf">(PDF)</a>
@@ -188,7 +36,7 @@
                 <li><a href="https://docs.google.com/document/d/1wVvxZNkyaUxeyunQNNFUi-ORzh7JAKVocdS-_dV_5k8/edit">TP2 : GraphQL</a></li>
             </ul>
         </li>
-        <li>IAAS
+        <li>III. IAAS
             <ul>
                 <li><a href="https://slides.com/doelia/2-architecture-client-serveur/">Slides</a>
                     <a href="/teaching/wis/cloud/slides/III-IAAS.pdf">(PDF)</a>
@@ -199,7 +47,7 @@
                 </li>
             </ul>
         </li>
-        <li>Cloud et IA
+        <li>IV. Cloud et IA
             <ul>
                 <li><a href="https://slides.com/doelia/presentation-module-cloud#/">Slides</a>
                     <a href="/teaching/wis/cloud/slides/IV-CLOUD-ET-IA.pdf">(PDF)</a>
@@ -209,7 +57,7 @@
                 </li>
             </ul>
         </li>
-        <li>Serverless
+        <li>V. Serverless
             <ul>
                 <li><a href="https://slides.com/doelia/iv-iaas-bbef17">Slides</a>
                     <a href="/teaching/wis/cloud/slides/V-SERVERLESS.pdf">(PDF)</a>
@@ -217,7 +65,7 @@
                 <li><a href="https://docs.google.com/document/d/1naYsjUpZdxeskO80Jhp2bERfwGtJWbV_lRFhOdTCSQs/edit?usp=sharing"><del>TP5 : FAAS avec Webtask (Annulé)</del></a></li>
             </ul>
         </li>
-        <li>PAAS
+        <li>VI. PAAS
             <ul>
                 <li><a href="https://slides.com/doelia/iv-cloud-et-ia">Slides</a>
                     <a href="/teaching/wis/cloud/slides/VI-PAAS.pdf">(PDF)</a>
@@ -225,20 +73,20 @@
                 <li><a href="https://docs.google.com/document/d/1OYzrTlPjyzMFQQmSNNOrkCJ7icXJ5J0it6ELTVrywTs/edit?usp=sharing">TP : PAAS avec CleverCloud (Facultatif)</a></li>
             </ul>
         </li>
-        <li>Cloud et approche DevOps
+        <li>VII. Cloud et approche DevOps
             <ul>
                 <li><a href="https://slides.com/doelia/iv-iaas#/">Slides</a>
                     <a href="/teaching/wis/cloud/slides/VII-CLOUD-ET-DEVOPS.pdf">(PDF)</a>
                 </li>
             </ul>
         </li>
-        <li class="reset">PROJET : Intégrer des services Cloud dans une application front-end
+        <li>PROJET : Intégrer des services Cloud dans une application front-end
             <ul>
                 <li><a href="https://docs.google.com/document/d/1_0PZ4YxrR4hUKTiyUQLSpNqlh2sJPV5idvMUUET8154/edit?usp=sharing">Sujet</a></li>
             </ul>
         </li>
 
-    </ol>
+    </ul>
 </section>
 
 <footer>
