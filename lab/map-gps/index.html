@@ -9,15 +9,21 @@
         html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
         #map { height: 100%; width: 100%; }
         #inputs { position: fixed; top: 5px; left: 5px; z-index: 1001; }
+        .picture { max-width: 300px; max-height: 300px; }
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
-          integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin=""/>
 
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
-            integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -105,6 +111,32 @@
         watch: true,
         // maxZoom: 8
     });
+
+    map.on('click', function(e){
+        var coord = e.latlng;
+        var lat = coord.lat;
+        var lng = coord.lng;
+        console.log('latlng', [lng, lat]);
+    });
+
+    $(function() {
+        $.ajax({
+            dataType: "json",
+            url: "points.geojson",
+            success: function(geojson) {
+                L.geoJSON(geojson, {
+                    onEachFeature: (feature, layer) => {
+                        layer.bindPopup(`
+                           <a href="${feature.properties.picture}" target="_blank">
+                            <img src="${feature.properties.picture}" class="picture">
+                            </a>
+                        `);
+                    }
+                }).addTo(map);
+            }
+        });
+    });
+
 
 </script>
 

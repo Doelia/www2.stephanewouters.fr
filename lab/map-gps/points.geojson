@@ -1,0 +1,35 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.8991916179656987, 43.76631348549793]
+            },
+            "properties": {
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7946.JPG"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.897936344146729, 43.77079166868198]
+            },
+            "properties": {
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7581.JPG"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.89366090297699, 43.75718175667475]
+            },
+            "properties": {
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3980.JPG"
+            }
+        }
+    ]
+}
