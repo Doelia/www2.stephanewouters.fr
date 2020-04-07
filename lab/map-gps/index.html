@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaflet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+        #map { height: 100%; width: 100%; }
+        #inputs { position: fixed; top: 5px; left: 5px; z-index: 1001; }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+          integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+          crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+            integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+            crossorigin=""></script>
+</head>
+<body>
+
+<div id="map"></div>
+<div id="inputs">
+    <input type="text" class="position" id_position="0">
+    <input type="text" class="position" id_position="1">
+    <br>
+    <input type="text" class="position" id_position="2">
+    <input type="text" class="position" id_position="3">
+</div>
+
+<script>
+
+    const p1 = [43.7524, 3.9077, 43.7754, 3.9301];
+
+    document.querySelectorAll('.position').forEach(i => {
+        const idPosition = parseInt(i.getAttribute('id_position'));
+        i.addEventListener('input', function(e) {
+            const value = parseFloat(e.target.value);
+            p1[idPosition] = value;
+            console.log('set', idPosition, value);
+            loadOverlay();
+        });
+        i.value = p1[idPosition];
+    });
+
+    let overlay = null;
+
+    function loadOverlay() {
+
+        if (overlay) {
+            map.removeLayer(overlay);
+        }
+
+        var	bounds = new L.LatLngBounds(
+            new L.LatLng(p1[0], p1[1]),
+            new L.LatLng(p1[2], p1[3])
+        );
+
+        console.log('boounds', bounds);
+
+        overlay = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png", bounds, {
+            opacity: 1,
+            interactive: true,
+            attribution: '&copy; A.B.B Corp.'
+        })).addTo(map);
+    }
+
+    var map = L.map('map', {
+        center: [43.766189, 3.9060693],
+        zoom: 16,
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { }).addTo(map);
+
+    loadOverlay();
+
+    function onLocationFound(e) {
+        var radius = e.accuracy / 2;
+        L.marker(e.latlng).addTo(map)
+            // .bindPopup("You are within " + radius + " meters from this point").openPopup();
+        L.circle(e.latlng, radius).addTo(map);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.locate({
+        setView: false,
+        watch: true,
+        // maxZoom: 8
+    });
+
+</script>
+
+</body>
+</html>
