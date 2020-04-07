@@ -33,24 +33,26 @@
 <script>
 
     const p1 = [43.7524, 3.9077, 43.7754, 3.9301];
+    const p2 = [43.7535, 3.8865, 43.7744, 3.9069];
 
     document.querySelectorAll('.position').forEach(i => {
         const idPosition = parseInt(i.getAttribute('id_position'));
         i.addEventListener('input', function(e) {
             const value = parseFloat(e.target.value);
-            p1[idPosition] = value;
+            p2[idPosition] = value;
             console.log('set', idPosition, value);
-            loadOverlay();
+            loadOverlaySuque();
+            loadOverlayCeceles();
         });
         i.value = p1[idPosition];
     });
 
-    let overlay = null;
+    let overlay_suque, overlay_ceceles = null;
 
-    function loadOverlay() {
+    function loadOverlaySuque() {
 
-        if (overlay) {
-            map.removeLayer(overlay);
+        if (overlay_suque) {
+            map.removeLayer(overlay_suque);
         }
 
         var	bounds = new L.LatLngBounds(
@@ -58,25 +60,38 @@
             new L.LatLng(p1[2], p1[3])
         );
 
-        console.log('boounds', bounds);
-
-        overlay = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png", bounds, {
+        overlay_suque = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png", bounds, {
             opacity: 1,
-            interactive: true,
-            attribution: '&copy; A.B.B Corp.'
+        })).addTo(map);
+    }
+
+    function loadOverlayCeceles() {
+
+        if (overlay_ceceles) {
+            map.removeLayer(overlay_ceceles);
+        }
+
+        var	bounds = new L.LatLngBounds(
+            new L.LatLng(p2[0], p2[1]),
+            new L.LatLng(p2[2], p2[3])
+        );
+
+        overlay_ceceles = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles.png", bounds, {
+            // opacity: 0.5,
         })).addTo(map);
     }
 
     var map = L.map('map', {
         center: [43.766189, 3.9060693],
-        zoom: 16,
+        zoom: 14,
     });
 
     var layerGps = L.layerGroup().addTo(map);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { }).addTo(map);
 
-    loadOverlay();
+    loadOverlaySuque();
+    loadOverlayCeceles();
 
     function onLocationFound(e) {
         layerGps.clearLayers();
