@@ -32,7 +32,7 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiZG9lbGlhIiwiYSI6ImNqN3JydGhiZDN6cHEzM251dXVsZ3FodjQifQ.mtRIEu7WPakLBYQRVgV52g';
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
+        style: 'mapbox://styles/mapbox/outdoors-v11',
         center: [3.9060693, 43.766189],
         zoom: 14,
     });
@@ -129,16 +129,25 @@
                                 'type': 'circle',
                                 'paint': {
                                     'circle-radius': {
-                                        'base': 1.75,
+                                        'base': 2,
                                         'stops': [[12, 2], [22, 180]]
                                     },
-                                    'circle-color': 'Orange',
+                                    // 'circle-pitch-scale': 'map',
+                                    'circle-color': 'Yellow',
+                                    'circle-stroke-width': {
+                                        'base': 1.25,
+                                        'stops': [[12, 2], [22, 180]]
+                                    },
+                                    'circle-stroke-opacity': 0,
                                 },
                                 // 'type': 'symbol',
                                 // 'layout': {
                                 //     "icon-pitch-alignment": "map",
                                 //     'icon-image': ['get', 'icon'],
-                                //     'icon-size': 0.25
+                                //     'icon-size': {
+                                //          'base': .25,
+                                //          'stops': [[12, 0.5], [22, 20]]
+                                //     }
                                 // }
                             });
 
