@@ -10,6 +10,7 @@
         #map { height: 100%; width: 100%; }
         #inputs { position: fixed; top: 5px; left: 5px; z-index: 1001; }
         .picture { max-width: 300px; max-height: 300px; }
+        .popup { width: 300px; }
     </style>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -37,6 +38,35 @@
 </div>
 
 <script>
+
+    const icons = {
+        eye: L.icon({
+            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/eye.png',
+            iconSize:     [53/2, 64/2],
+        }),
+        sand: L.icon({
+            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/sand.png',
+            iconSize:     [32, 32],
+        }),
+        frog: L.icon({
+            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/frog.png',
+            iconSize:     [50, 50],
+        }),
+        tree: L.icon({
+            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/tree.png',
+            iconSize:     [32, 32],
+        }),
+        charboniere: L.icon({
+            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/charboniere.png',
+            iconSize:     [32, 32],
+            iconAnchor:   [16, 32],
+        }),
+        sign: L.icon({
+            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/sign.png',
+            iconSize:     [32, 32],
+            iconAnchor:   [16, 32],
+        })
+    };
 
     const p1 = [43.7524, 3.9077, 43.7754, 3.9301];
     const p2 = [43.7535, 3.8865, 43.7744, 3.9069];
@@ -66,7 +96,7 @@
             new L.LatLng(p1[2], p1[3])
         );
 
-        overlay_suque = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png", bounds, {
+        overlay_suque = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque_roads.png", bounds, {
             opacity: 1,
         })).addTo(map);
     }
@@ -82,7 +112,7 @@
             new L.LatLng(p2[2], p2[3])
         );
 
-        overlay_ceceles = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles.png", bounds, {
+        overlay_ceceles = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles_roads.png", bounds, {
             // opacity: 0.5,
         })).addTo(map);
     }
@@ -126,11 +156,23 @@
             success: function(geojson) {
                 L.geoJSON(geojson, {
                     onEachFeature: (feature, layer) => {
-                        layer.bindPopup(`
-                           <a href="${feature.properties.picture}" target="_blank">
-                            <img src="${feature.properties.picture}" class="picture">
+                        if (feature.properties.picture) {
+                            layer.bindPopup(`
+                                <div class="popup">
+                                   <a href="${feature.properties.picture}" target="_blank">
+                                   <img src="${feature.properties.picture}" class="picture">
+                                </div>
                             </a>
                         `);
+                        }
+                    },
+                    pointToLayer: function (feature, latlng) {
+                        const icon = icons[feature.properties.icon];
+                        if (icon) {
+                            return L.marker(latlng, {icon: icon})
+                        } else {
+                            return L.marker(latlng)
+                        }
                     }
                 }).addTo(map);
             }

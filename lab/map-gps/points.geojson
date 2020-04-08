@@ -8,7 +8,11 @@
                 "coordinates": [3.8991916179656987, 43.76631348549793]
             },
             "properties": {
-                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7946.JPG"
+                "map": "ceceles",
+                "type": "point_of_view",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7946.JPG",
+                "description": "Point le plus haut. Vue sur hortus et pic saint loup",
+                "icon": "eye"
             }
         },
         {
@@ -18,17 +22,279 @@
                 "coordinates": [3.897936344146729, 43.77079166868198]
             },
             "properties": {
-                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7581.JPG"
+                "map": "ceceles",
+                "type": "point_of_view",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7581.JPG",
+                "description": "Vue sur le village de Sainte Crox de Quintillargues",
+                "icon": "eye"
             }
         },
         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [3.89366090297699, 43.75718175667475]
+                "coordinates": [3.901036977767945, 43.77155865950591]
             },
             "properties": {
-                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3980.JPG"
+                "map": "ceceles",
+                "type": "item",
+                "description": "dunes du début",
+                "icon": "sand"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.899883627891541, 43.76990458116945]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "item",
+                "description": "dunes du santier",
+                "icon": "sand"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.8984405994415288, 43.767665498278426]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "item",
+                "description": "dunes vers la montée qui monte",
+                "icon": "sand"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9004147052764897, 43.769827105652816]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "item",
+                "description": "Flaque d'eau",
+                "icon": "water"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.8933819532394414, 43.75749172365232]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "point_of_view",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3980.JPG",
+                "description": "vue depuis le roc de la céde",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.8946318626403813, 43.765856351054694]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "point_of_view",
+                "description": "Point en haut du sentier qui mène nul-part",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.8984942436218266, 43.7687966717378]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "point_of_view",
+                "description": "Vu sur le passage difficule",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.914362192153931, 43.76081989288954]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Charbonière 1 - puit",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_0441.JPG",
+                "icon": "charboniere"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9141958951950078, 43.759289500457776]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Charbonière 2",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3061.JPG",
+                "icon": "charboniere"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9157462120056157, 43.75881293988514]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Charbonière 3",
+                "icon": "charboniere"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9165133237838745, 43.756061987590726]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Charbonière en fonte",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_0197.JPG",
+                "icon": "charboniere"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.914560675621033, 43.760943872334465]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Panneau 1",
+                "icon": "sign"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.914415836334229, 43.759270128150796]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Panneau 2 de la charbonière 2",
+                "icon": "sign"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9149737358093266, 43.75781331269438]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Panneau 3 tout seul sur le sentier",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_5320.JPG",
+                "icon": "sign"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9132571220397954, 43.76542245750416]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Marre aux tétards",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7653.JPG",
+                "icon": "frog"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.915043473243714, 43.76002951788861]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "Point de vue sur les roches du chemin rouge",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_5241.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9171195030212407, 43.75934761734112]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "Point de vue du haut des charbonières",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.924973011016846, 43.764798730011535]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "Vu d'en haut de la Suque",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9151024818420415, 43.763295558773514]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "Premier point de vue quand on monte vers la suque",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9123827219009404, 43.76544957594326]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "Arbre imposant",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3760.JPG",
+                "icon": "tree"
             }
         }
     ]
