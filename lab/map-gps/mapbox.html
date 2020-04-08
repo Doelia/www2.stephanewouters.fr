@@ -8,6 +8,8 @@
     <style>
         html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
         #map { height: 100%; width: 100%; }
+        .picture { max-width: 220px; max-height: 300px; }
+        /*.popup { width: 300px; }*/
     </style>
 
 
@@ -77,39 +79,91 @@
             })
         );
 
-        $(function() {
-            $.ajax({
-                dataType: "json",
-                url: "points.geojson",
-                success: function (geojson) {
-                    map.addSource('points', {
-                        'type': 'geojson',
-                        'data': geojson
-                    });
 
-                    map.addLayer({
-                        'id': 'points',
-                        'type': 'circle',
-                        'source': 'points',
-                        'paint': {
-                            'circle-radius': {
-                                'base': 1.75,
-                                'stops': [[12, 2], [22, 180]]
-                            },
-                            'circle-color': 'White'
+        const images = [
+            { id: 'eye', url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/eye.png' },
+            { id: 'charboniere', url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/charboniere.png' },
+            // { id: 'water', url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/water.png' },
+            { id: 'sand', url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/sand.png' },
+            { id: 'frog', url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/frog.png' },
+            { id: 'sign', url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/sign.png' },
+            { id: 'tree', url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/tree.png' },
+        ];
+
+        Promise.all(
+            images.map(img => new Promise((resolve, reject) => {
+                map.loadImage(img.url, function (error, res) {
+                    map.addImage(img.id, res)
+                    resolve();
+                })
+            }))
+        )
+            .then(() => {
+
+                $(function() {
+                    $.ajax({
+                        dataType: "json",
+                        url: "points.geojson",
+                        success: function (geojson) {
+
+                            geojson.features = geojson.features.filter(f => f.properties.picture);
+                            geojson.features = geojson.features.map(f => ({
+                                ...f,
+                                geometry: {
+                                    type: f.geometry.type,
+                                    coordinates: [
+                                        f.geometry.coordinates[0] + 0.0001,
+                                        f.geometry.coordinates[1],
+                                    ]
+                                }
+                            }))
+
+                            map.addSource('points', {
+                                'type': 'geojson',
+                                'data': geojson
+                            });
+
+                            map.addLayer({
+                                'id': 'points',
+                                'source': 'points',
+                                'type': 'circle',
+                                'paint': {
+                                    'circle-radius': {
+                                        'base': 1.75,
+                                        'stops': [[12, 2], [22, 180]]
+                                    },
+                                    'circle-color': 'Orange',
+                                },
+                                // 'type': 'symbol',
+                                // 'layout': {
+                                //     "icon-pitch-alignment": "map",
+                                //     'icon-image': ['get', 'icon'],
+                                //     'icon-size': 0.25
+                                // }
+                            });
+
+
+                            map.on('click', 'points', function(e) {
+                                var coordinates = e.features[0].geometry.coordinates.slice();
+                                var picture_url = e.features[0].properties.picture;
+
+                                new mapboxgl.Popup()
+                                    .setLngLat(coordinates)
+                                    .setHTML(`
+                                        <div class="popup">
+                                           <a href="${picture_url}" target="_blank">
+                                           <img src="${picture_url}" class="picture">
+                                            </a>
+                                        </div>
+                                    `)
+                                    .addTo(map);
+                            });
+
                         }
-                        // 'layout': {
-                        //     'icon-image': ['concat', ['get', 'icon'], '-15'],
-                        //     'text-field': ['get', 'title'],
-                        //     'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                        //     'text-offset': [0, 0.6],
-                        //     'text-anchor': 'top'
-                        // }
-                    });
-
-                }
+                    })
+                })
             })
-        })
+
     })
 
 </script>
