@@ -10,7 +10,7 @@
             "properties": {
                 "map": "ceceles",
                 "type": "point_of_view",
-                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7946.JPG",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3192.jpg",
                 "description": "Point le plus haut. Vue sur hortus et pic saint loup",
                 "icon": "eye"
             }
@@ -119,6 +119,62 @@
                 "type": "point_of_view",
                 "description": "Vu sur le passage difficule",
                 "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.8999909162521367, 43.76310184839247]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "point_of_view",
+                "description": "Vue sur la route d'assas depuis la cambrousse",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_9040.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.8873898983001713, 43.76366748094686]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "point_of_view",
+                "description": "Photo ceceles 1",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3016.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.887577652931214, 43.76313671630736]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "point_of_view",
+                "description": "Photo ceceles 2",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_8760.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.89915943145752, 43.765399213118]
+            },
+            "properties": {
+                "map": "ceceles",
+                "type": "item",
+                "description": "Petite tour de piere",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7872.JPG",
+                "icon": "stone"
             }
         },
         {

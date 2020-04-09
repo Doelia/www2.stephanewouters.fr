@@ -2,183 +2,159 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Leaflet</title>
+    <title>Mapbox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
         #map { height: 100%; width: 100%; }
-        #inputs { position: fixed; top: 5px; left: 5px; z-index: 1001; }
-        .picture { max-width: 300px; max-height: 300px; }
-        .popup { width: 300px; }
+        .picture { max-width: 220px; max-height: 300px; }
+        /*.popup { width: 300px; }*/
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin=""/>
 
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
-
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
     <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
+
 </head>
 <body>
 
 <div id="map"></div>
-<div id="inputs" style="display: none">
-    <input type="text" class="position" id_position="0">
-    <input type="text" class="position" id_position="1">
-    <br>
-    <input type="text" class="position" id_position="2">
-    <input type="text" class="position" id_position="3">
-</div>
 
 <script>
-
-    const icons = {
-        eye: L.icon({
-            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/eye.png',
-            iconSize:     [53/2, 64/2],
-        }),
-        sand: L.icon({
-            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/sand.png',
-            iconSize:     [32, 32],
-        }),
-        frog: L.icon({
-            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/frog.png',
-            iconSize:     [50, 50],
-        }),
-        tree: L.icon({
-            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/tree.png',
-            iconSize:     [32, 32],
-        }),
-        charboniere: L.icon({
-            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/charboniere.png',
-            iconSize:     [32, 32],
-            iconAnchor:   [16, 32],
-        }),
-        sign: L.icon({
-            iconUrl: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/icons/sign.png',
-            iconSize:     [32, 32],
-            iconAnchor:   [16, 32],
-        })
-    };
-
     const p1 = [43.7524, 3.9077, 43.7754, 3.9301];
     const p2 = [43.7535, 3.8865, 43.7744, 3.9069];
 
-    document.querySelectorAll('.position').forEach(i => {
-        const idPosition = parseInt(i.getAttribute('id_position'));
-        i.addEventListener('input', function(e) {
-            const value = parseFloat(e.target.value);
-            p2[idPosition] = value;
-            console.log('set', idPosition, value);
-            loadOverlaySuque();
-            loadOverlayCeceles();
-        });
-        i.value = p1[idPosition];
-    });
-
-    let overlay_suque, overlay_ceceles = null;
-
-    function loadOverlaySuque() {
-
-        if (overlay_suque) {
-            map.removeLayer(overlay_suque);
-        }
-
-        var	bounds = new L.LatLngBounds(
-            new L.LatLng(p1[0], p1[1]),
-            new L.LatLng(p1[2], p1[3])
-        );
-
-        overlay_suque = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque_roads.png", bounds, {
-            opacity: 1,
-        })).addTo(map);
-    }
-
-    function loadOverlayCeceles() {
-
-        if (overlay_ceceles) {
-            map.removeLayer(overlay_ceceles);
-        }
-
-        var	bounds = new L.LatLngBounds(
-            new L.LatLng(p2[0], p2[1]),
-            new L.LatLng(p2[2], p2[3])
-        );
-
-        overlay_ceceles = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles_roads.png", bounds, {
-            // opacity: 0.5,
-        })).addTo(map);
-    }
-
-    var map = L.map('map', {
-        center: [43.766189, 3.9060693],
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZG9lbGlhIiwiYSI6ImNqN3JydGhiZDN6cHEzM251dXVsZ3FodjQifQ.mtRIEu7WPakLBYQRVgV52g';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v11',
+        center: [3.9060693, 43.766189],
         zoom: 14,
     });
 
-    var layerGps = L.layerGroup().addTo(map);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { }).addTo(map);
-
-    loadOverlaySuque();
-    loadOverlayCeceles();
-
-    function onLocationFound(e) {
-        layerGps.clearLayers();
-        L.marker(e.latlng).addTo(layerGps);
-        L.circle(e.latlng, e.accuracy / 2).addTo(layerGps);
-    }
-
-    map.on('locationfound', onLocationFound);
-    map.locate({
-        setView: false,
-        watch: true,
-        // maxZoom: 8
-    });
-
-    map.on('click', function(e){
-        var coord = e.latlng;
-        var lat = coord.lat;
-        var lng = coord.lng;
-        console.log('latlng', [lng, lat]);
-    });
-
-    $(function() {
-        $.ajax({
-            dataType: "json",
-            url: "points.geojson",
-            success: function(geojson) {
-                L.geoJSON(geojson, {
-                    onEachFeature: (feature, layer) => {
-                        if (feature.properties.picture) {
-                            layer.bindPopup(`
-                                <div class="popup">
-                                   <a href="${feature.properties.picture}" target="_blank">
-                                   <img src="${feature.properties.picture}" class="picture">
-                                    </a>
-                                </div>
-                        `);
-                        }
-                    },
-                    pointToLayer: function (feature, latlng) {
-                        const icon = icons[feature.properties.icon];
-                        if (icon) {
-                            return L.marker(latlng, {icon: icon})
-                        } else {
-                            return L.marker(latlng)
-                        }
-                    }
-                }).addTo(map);
-            }
+    map.on('load', () => {
+        map.addSource('source_suque', {
+            type: 'image',
+            url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png',
+            coordinates: [
+                [p1[1], p1[2]],
+                [p1[3], p1[2]],
+                [p1[3], p1[0]],
+                [p1[1], p1[0]]
+            ]
         });
-    });
+        map.addLayer({
+            "id": "overlay_suque",
+            "source": "source_suque",
+            "type": "raster",
+        })
+        
+        map.addSource('source_ceceles', {
+            type: 'image',
+            url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles.png',
+            coordinates: [
+                [p2[1], p2[2]],
+                [p2[3], p2[2]],
+                [p2[3], p2[0]],
+                [p2[1], p2[0]]
+            ]
+        });
+        map.addLayer({
+            "id": "overlay_ceceles",
+            "source": "source_ceceles",
+            "type": "raster",
+        })
 
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
+        );
+
+        const images = [];
+
+        Promise.all(
+            images.map(img => new Promise((resolve, reject) => {
+                map.loadImage(img.url, function (error, res) {
+                    map.addImage(img.id, res)
+                    resolve();
+                })
+            }))
+        )
+            .then(() => {
+
+                $(function() {
+                    $.ajax({
+                        dataType: "json",
+                        url: "points.geojson",
+                        success: function (geojson) {
+
+                            geojson.features = geojson.features.filter(f => f.properties.picture);
+                            geojson.features = geojson.features.map(f => ({
+                                ...f,
+                                geometry: {
+                                    type: f.geometry.type,
+                                    coordinates: [
+                                        f.geometry.coordinates[0] + 0.0001,
+                                        f.geometry.coordinates[1],
+                                    ]
+                                }
+                            }))
+
+                            map.addSource('points', {
+                                'type': 'geojson',
+                                'data': geojson
+                            });
+
+                            map.addLayer({
+                                'id': 'points',
+                                'source': 'points',
+                                'type': 'circle',
+                                'paint': {
+                                    'circle-radius': {
+                                        'base': 2,
+                                        'stops': [[12, 2], [22, 180]]
+                                    },
+                                    'circle-color': 'Yellow',
+                                    'circle-stroke-width': {
+                                        'base': 1.25,
+                                        'stops': [[12, 2], [22, 180]]
+                                    },
+                                    'circle-stroke-opacity': 0,
+                                },
+                            });
+
+
+                            map.on('click', 'points', function(e) {
+                                var coordinates = e.features[0].geometry.coordinates.slice();
+                                var picture_url = e.features[0].properties.picture;
+
+                                new mapboxgl.Popup()
+                                    .setLngLat(coordinates)
+                                    .setHTML(`
+                                        <div class="popup">
+                                           <a href="${picture_url}" target="_blank">
+                                           <img src="${picture_url}" class="picture">
+                                            </a>
+                                        </div>
+                                    `)
+                                    .addTo(map);
+                            });
+
+                        }
+                    })
+                })
+            })
+
+    })
 
 </script>
 

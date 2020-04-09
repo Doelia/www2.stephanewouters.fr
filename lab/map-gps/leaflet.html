@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaflet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+        #map { height: 100%; width: 100%; }
+        #inputs { position: fixed; top: 5px; left: 5px; z-index: 1001; }
+        .picture { max-width: 300px; max-height: 300px; }
+        .popup { width: 300px; }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="map"></div>
+<div id="inputs" style="display: none">
+    <input type="text" class="position" id_position="0">
+    <input type="text" class="position" id_position="1">
+    <br>
+    <input type="text" class="position" id_position="2">
+    <input type="text" class="position" id_position="3">
+</div>
+
+<script>
+
+    const p1 = [43.7524, 3.9077, 43.7754, 3.9301];
+    const p2 = [43.7535, 3.8865, 43.7744, 3.9069];
+
+    document.querySelectorAll('.position').forEach(i => {
+        const idPosition = parseInt(i.getAttribute('id_position'));
+        i.addEventListener('input', function(e) {
+            const value = parseFloat(e.target.value);
+            p2[idPosition] = value;
+            console.log('set', idPosition, value);
+            loadOverlaySuque();
+            loadOverlayCeceles();
+        });
+        i.value = p1[idPosition];
+    });
+
+    let overlay_suque, overlay_ceceles = null;
+
+    function loadOverlaySuque() {
+
+        if (overlay_suque) {
+            map.removeLayer(overlay_suque);
+        }
+
+        var	bounds = new L.LatLngBounds(
+            new L.LatLng(p1[0], p1[1]),
+            new L.LatLng(p1[2], p1[3])
+        );
+
+        overlay_suque = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png", bounds, {
+            opacity: 1,
+        })).addTo(map);
+    }
+
+    function loadOverlayCeceles() {
+
+        if (overlay_ceceles) {
+            map.removeLayer(overlay_ceceles);
+        }
+
+        var	bounds = new L.LatLngBounds(
+            new L.LatLng(p2[0], p2[1]),
+            new L.LatLng(p2[2], p2[3])
+        );
+
+        overlay_ceceles = (new L.ImageOverlay("https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles.png", bounds, {
+            // opacity: 0.5,
+        })).addTo(map);
+    }
+
+    var map = L.map('map', {
+        center: [43.766189, 3.9060693],
+        zoom: 14,
+    });
+
+    var layerGps = L.layerGroup().addTo(map);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { }).addTo(map);
+
+    loadOverlaySuque();
+    loadOverlayCeceles();
+
+    map.on('click', function(e){
+        var coord = e.latlng;
+        var lat = coord.lat;
+        var lng = coord.lng;
+        console.log('latlng', [lng, lat]);
+    });
+
+    $(function() {
+        $.ajax({
+            dataType: "json",
+            url: "points.geojson",
+            success: function(geojson) {
+                geojson.features = geojson.features.filter(f => f.properties.picture);
+                L.geoJSON(geojson, {
+                    onEachFeature: (feature, layer) => {
+                        if (feature.properties.picture) {
+                            layer.bindPopup(`
+                                <div class="popup">
+                                   <a href="${feature.properties.picture}" target="_blank">
+                                   <img src="${feature.properties.picture}" class="picture">
+                                    </a>
+                                </div>
+                        `);
+                        }
+                    },
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng)
+                    }
+                }).addTo(map);
+            }
+        });
+    });
+
+
+</script>
+
+</body>
+</html>
