@@ -352,6 +352,62 @@
                 "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3760.JPG",
                 "icon": "tree"
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9150810241699223, 43.763295558773514]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "vue sur sante croix sur le petit sentier de la suque",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_0929.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9248120784759526, 43.7650737907633]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "haut de la suque / sortie sentier",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_9504.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.924806714057923, 43.76532173176555]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "haut de la suque / pic saint loup",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_6546.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.925021290779114, 43.764903330728146]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "point_of_view",
+                "description": "haut de la suque / vers la mer",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_8560.JPG",
+                "icon": "eye"
+            }
         }
     ]
 }
