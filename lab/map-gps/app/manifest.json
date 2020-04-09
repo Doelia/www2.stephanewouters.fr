@@ -1,0 +1,8 @@
+{
+  "short_name": "SteCroix",
+  "name": "Carte Sante Croix de Quintillargues",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "fr-FR"
+}
