@@ -16,8 +16,12 @@ body {
     background-color: white;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 720px) {
     .ui.main.container {
         padding: 40px;
     }
+}
+
+.my_legend img {
+    margin-left: 10px;
 }
