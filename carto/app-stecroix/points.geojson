@@ -200,8 +200,8 @@
             "properties": {
                 "map": "suque",
                 "type": "item",
-                "description": "Charbonière 2",
-                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_3061.JPG",
+                "description": "Charbonière 2 - en bas",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_1882.JPG",
                 "icon": "charboniere"
             }
         },
@@ -214,7 +214,8 @@
             "properties": {
                 "map": "suque",
                 "type": "item",
-                "description": "Charbonière 3",
+                "description": "Charbonière 3, la plus haute",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_7850.JPG",
                 "icon": "charboniere"
             }
         },
@@ -222,7 +223,7 @@
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [3.9165133237838745, 43.756061987590726]
+                "coordinates": [3.9165240526199345, 43.75622859815857]
             },
             "properties": {
                 "map": "suque",
@@ -406,6 +407,34 @@
                 "type": "point_of_view",
                 "description": "haut de la suque / vers la mer",
                 "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_8560.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.91364336013794, 43.75806515832779]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "choix montée / tout droit",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_1073.JPG",
+                "icon": "eye"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [3.9172536134719853, 43.75932437059457]
+            },
+            "properties": {
+                "map": "suque",
+                "type": "item",
+                "description": "point de vue en haut des charbonières",
+                "picture": "https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/pictures/IMG_5659.JPG",
                 "icon": "eye"
             }
         }
