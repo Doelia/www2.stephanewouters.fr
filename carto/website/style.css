@@ -25,3 +25,26 @@ body {
 .my_legend img {
     margin-left: 10px;
 }
+
+/** PHOTOS PAGE **/
+.picture {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.minimap {
+    opacity: 1;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    border: 3px solid white;
+}
+
+@media (max-width: 720px) {
+    .minimap {
+        display: none;
+    }
+}
