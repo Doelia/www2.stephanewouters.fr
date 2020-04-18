@@ -1,22 +1,23 @@
-h3 {
-    /*margin-bottom: 0;*/
-}
-
 body {
     background-color: #eeeeee;
 }
 
 .ui.main.container {
     background-color: white;
-    padding: 40px;
+    padding: 20px;
     border: 1px solid #e0e0e0;
 }
 
-.ui.main.container.text {
+.ui.container.text {
     max-width: 780px !important;
+}
+
+.ui.main.container.text {
     background-color: white;
 }
 
-.header-image {
-    max-width: 780px !important;
+@media (min-width: 992px) {
+    .ui.main.container {
+        padding: 40px;
+    }
 }
