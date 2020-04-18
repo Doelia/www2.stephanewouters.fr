@@ -24,7 +24,7 @@ map.on('load', () => {
         "id": "overlay_suque",
         "source": "source_suque",
         "type": "raster",
-    })
+    });
 
     map.addSource('source_ceceles', {
         type: 'image',
@@ -40,7 +40,7 @@ map.on('load', () => {
         "id": "overlay_ceceles",
         "source": "source_ceceles",
         "type": "raster",
-    })
+    });
 
     map.addControl(
         new mapboxgl.GeolocateControl({
