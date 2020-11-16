@@ -10,7 +10,7 @@ use Google\Cloud\Vision\V1\ImageAnnotatorClient;
 $imageAnnotator = new ImageAnnotatorClient();
 
 # the name of the image file to annotate
-$fileName = __DIR__ . '/butterfly-4756682_640.jpg';
+$fileName = __DIR__ . '/butterfly-4756682_960_720.jpg';
 
 # prepare the image to be annotated
 $image = file_get_contents($fileName);

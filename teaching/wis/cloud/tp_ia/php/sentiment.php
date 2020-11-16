@@ -6,13 +6,8 @@ require __DIR__ . '/vendor/autoload.php';
 # Imports the Google Cloud client library
 use Google\Cloud\Language\LanguageClient;
 
-# Your Google Cloud Platform project ID
-$projectId = 'YOUR_PROJECT_ID';
-
 # Instantiates a client
-$language = new LanguageClient([
-    'projectId' => $projectId
-]);
+$language = new LanguageClient();
 
 # The text to analyze
 $text = "Les fauteuils de la salle 7 commencent a sérieusement être très usés et fatigué. 
