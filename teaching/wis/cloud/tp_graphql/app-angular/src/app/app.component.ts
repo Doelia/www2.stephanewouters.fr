@@ -9,11 +9,11 @@ import {GraphqlService} from "./graphql.service";
 export class AppComponent {
   title = 'app-angular';
 
-  hotels;
+  hotelsDatas;
 
   constructor(private client: GraphqlService) {
     this.client.getHotels().subscribe((data) => {
-      this.hotels = data.hotels;
+      this.hotelsDatas = data.hotels;
       console.log('data', data);
     });
   }
