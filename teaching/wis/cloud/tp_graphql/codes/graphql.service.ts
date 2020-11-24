@@ -7,7 +7,7 @@ import {map} from "rxjs/operators";
 })
 export class GraphqlService {
 
-  BASE_URL = 'https://api-euwest.graphcms.com/v1/VOTRE_URL/master';
+  BASE_URL = 'https://api-euwest.graphcms.com/v1/ck503mo0024wl01hfb0r15lxd/master';
 
   constructor(private client: HttpClient) { }
 
