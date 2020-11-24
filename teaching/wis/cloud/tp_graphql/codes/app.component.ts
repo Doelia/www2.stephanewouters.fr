@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {GraphqlService} from "./graphql.service";
+import {GraphqlService} from '../graphql.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import {GraphqlService} from "./graphql.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  hotelsDatas;
+  hotelsDatas: any;
 
   constructor(private client: GraphqlService) {
     this.client.getHotels().subscribe((data) => {
