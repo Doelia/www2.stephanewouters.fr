@@ -2,39 +2,61 @@
 <html>
 <head>
 	<title>Cookies Shop</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+
+        .container {
+            width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Tahoma;
+        }
+
+        .cookie {
+            width: 300px;
+            float: left;
+            border: 1px solid lightgray;
+            margin: 10px;
+            padding: 10px;
+            height: 450px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+    </style>
 </head>
 <body>
 
 	<div class="container">
 
 		<h1>Les cookies</h1>
-		
-		<div class="card-deck">
-		
+
 		<?php
 
 		$products = array_map('str_getcsv', file('products.csv'));
-		
+
 		foreach ($products as $p) {
 			?>
-			<div class="card" style="width: 18rem;">
-			  <img class="card-img-top" src="<?php echo $p[3]; ?>" alt="">
-			  <div class="card-body">
-			    <h5 class="card-title"><?php echo $p[1]; ?></h5>
-			    <p class="card-text"><?php echo $p[4]; ?></p>
+			<div class="cookie">
+			  <img src="<?php echo $p[3]; ?>">
+			  <div>
+			    <h5><?php echo $p[1]; ?></h5>
+			    <p><?php echo $p[4]; ?></p>
 			  </div>
 			</div>
-			<?php	
+			<?php
 		}
 		?>
-		
-		</div>
 
-        <p>
+        <div class="clear">
             <br>
             <a href="add_product.html">Ajouter un cookie au catalogue</a>
-        </p>
+        </div>
 	</div>
 
 </body>

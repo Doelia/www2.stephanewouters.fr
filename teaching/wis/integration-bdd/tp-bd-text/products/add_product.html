@@ -2,7 +2,23 @@
 <html>
 <head>
 	<title>Cookies Shop</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .container {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Tahoma,serif;
+        }
+        label {
+            display: block;
+            padding: 8px 0;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid lightgray;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,29 +27,30 @@
 		<h2>Ajouter un nouveau produit</h2>
 
         <form action="submit_form.php" method="POST">
-            <div class="form-group">
+            <div>
                 <label for="id">ID du produit</label>
-                <input type="number" class="form-control" id="id" name="id" placeholder="ID">
+                <input type="number" id="id" name="id" placeholder="ID">
             </div>
-            <div class="form-group">
+            <div>
                 <label for="name">Nom</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nom du produit">
+                <input type="text" id="name" name="name" placeholder="Nom du produit">
             </div>
-            <div class="form-group">
+            <div>
                 <label for="price">Prix</label>
-                <input type="text" class="form-control" id="price" placeholder="Prix en euros">
+                <input type="text" id="price" name="price" placeholder="Prix en euros">
             </div>
-            <div class="form-group">
+            <div>
                 <label for="picture">Image</label>
-                <input type="text" class="form-control" id="picture" name="picture" placeholder="Lien vers l'image">
+                <input type="text" id="picture" name="picture" placeholder="Lien vers l'image">
             </div>
-            <div class="form-group">
+            <div>
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                <textarea id="description" rows="3" name="description"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <br>
+            <button type="submit">Envoyer</button>
 		</form>
-		
+
 	</div>
 
 </body>
