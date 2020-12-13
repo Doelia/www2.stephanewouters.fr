@@ -10,8 +10,20 @@ export class AppComponent {
   hotelsDatas;
 
   constructor(private client: GraphqlService) {
+    this.loadConcerts();
+  }
+
+  loadConcerts() {
     this.client.getHotels().subscribe((data) => {
       this.hotelsDatas = data.hotels;
+    });
+  }
+
+  createConcert() {
+    this.api.createConcert().subscribe((data) => {
+      this.api.publishConcert(data.id).subscribe(() => {
+        this.loadConcerts();
+      });
     });
   }
 
