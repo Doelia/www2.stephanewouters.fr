@@ -5,9 +5,9 @@ error_reporting(-1);
 // Modifier les valeurs des variables par vos informations
 $host = "localhost";
 $user = "root";
-$password = "";
+$password = "root";
 $port = 3306;
-$dbname = "store";
+$dbname = "product";
 
 $db = new PDO("mysql:dbname=$dbname;host=$host:$port", $user, $password);
 
@@ -28,10 +28,10 @@ $db = new PDO("mysql:dbname=$dbname;host=$host:$port", $user, $password);
 		<th>Nom du produit</th>
 		<th>Prix</th>
 	</tr>
-	<?php foreach ($db->query("select * from products limit 10") as $p) { ?>
+	<?php foreach ($db->query("select * from product limit 10") as $p) { ?>
 		<tr>
-			<td><?php echo $p['productName']; ?></td>
-			<td><?php echo $p['buyPrice']; ?></td>
+			<td><?php echo $p['name']; ?></td>
+			<td><?php echo $p['price']; ?></td>
 		</tr>
 	<?php } ?>
 </table>
