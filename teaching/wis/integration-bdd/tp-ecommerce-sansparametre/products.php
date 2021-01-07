@@ -17,14 +17,12 @@ $result = $db->query("SELECT * FROM products");
         <th>Référence</th>
         <th>Nom</th>
         <th>Prix</th>
-        <th>Actions</th>
     </tr>
     <?php while ($ligne = $result->fetch()) { ?>
     <tr>
         <td> <?php echo $ligne['productCode']; ?> </td>
         <td> <?php echo $ligne['productName']; ?> </td>
         <td> <?php echo $ligne['buyPrice']; ?>$ </td>
-        <td><a href="supprimer_produit.php?productCode=<?php echo $ligne['productCode']; ?>">Supprimer</a></td>
     </tr>
     <?php } ?>
 
