@@ -7,23 +7,8 @@
 <body>
 
 <script>
-
-    let toFound = Math.floor(Math.random() * 100 + 1);
-    let p = prompt('Entrez un nombre entre 1 et 100');
-
-    while (p && p != toFound) {
-        if (p > toFound) {
-            p = prompt("C'est moins");
-        }
-        else  {
-            p = prompt("C'est plus");
-        }
-    }
-
-    if (p == toFound) {
-        alert("Gagné ! " + toFound + " était la solution.");
-    }
-
+// Inutile de tricher. Demandez plutôt de l'aide :)
+let toFound=Math.floor(100*Math.random()+1),p=prompt("Entrez un nombre entre 1 et 100");for(;p&&p!=toFound;)p=p>toFound?prompt("C'est moins"):prompt("C'est plus");p==toFound&&alert("Gagné ! "+toFound+" était la solution.");
 </script>
 
 </body>
