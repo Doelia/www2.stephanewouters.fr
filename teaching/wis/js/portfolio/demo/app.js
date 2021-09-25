@@ -2,9 +2,24 @@
 let images = document.querySelectorAll(".miniature img");
 let main = document.getElementById('main-image');
 
+
+document.body.addEventListener('mousemove', function(event) {
+    document.getElementById('popup').style.left = event.clientX + 'px';
+    document.getElementById('popup').style.top = (event.clientY + 15) + 'px';
+});
+
 for (let i = 0; i < images.length; i++) {
     images[i].addEventListener('click', function() {
-        main.setAttribute('src', images[i].getAttribute('src'));
+        let src = images[i].getAttribute('src')
+        main.setAttribute('src', src);
+    })
+    images[i].addEventListener('mouseenter', function() {
+        let text = images[i].getAttribute('alt');
+        document.getElementById("popup").innerHTML = text;
+        document.getElementById("popup").style.display = 'block';
+    })
+    images[i].addEventListener('mouseout', function() {
+        document.getElementById("popup").style.display = 'none';
     })
 }
 

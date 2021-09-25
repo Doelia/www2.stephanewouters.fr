@@ -3,6 +3,15 @@ ul.menu {
     padding: 0;
 }
 
+#popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: black;
+    color: white;
+    padding: 10px;
+}
+
 .menu li {
     float: left;
     display: block;
