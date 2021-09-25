@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu du morpion</title>
+</head>
+<body>
+
+<style>
+    .game {
+        /*max-width: 1000px;*/
+        /*background: pink;*/
+    }
+    .grid-container {
+        /*width: 300px;*/
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5px;
+    }
+    .grid-item {
+        width: 100px;
+        height: 100px;
+        background: gray;
+        cursor: pointer;
+        font-size: 50px;
+        text-align: center;
+    }
+</style>
+
+<div>
+    <div id="message">Joueur X, c'est à toi !</div>
+    <button onclick="replay()">Rejouer</button>
+
+
+    <div class="game">
+        <div class="grid-container">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var joueur_courant = 'X';
+    var nombreCoups = 0;
+
+    let cases = document.getElementsByClassName('grid-item');
+    for (let c of cases) {
+        c.addEventListener('click', function() {
+            if (!c.innerHTML) {
+                c.innerHTML = joueur_courant;
+                if (joueur_courant === 'X') {
+                    joueur_courant = 'O';
+                } else {
+                    joueur_courant = 'X';
+                }
+                nombreCoups++;
+                if (nombreCoups === 9) {
+                    document.getElementById('message').innerHTML = "Partie terminée !";
+                } else {
+                    afficher_joueur_courant();
+                }
+            }
+        })
+    }
+
+    function replay() {
+        let cases = document.getElementsByClassName('grid-item');
+        for (let c of cases) {
+            c.innerHTML = '';
+        }
+        nombreCoups = 0;
+        joueur_courant = 'X';
+        afficher_joueur_courant();
+    }
+
+    function afficher_joueur_courant() {
+        document.getElementById('message').innerHTML = "Joueur " + joueur_courant + ", c'est à toi !";
+    }
+</script>
+
+</body>
+</html>
