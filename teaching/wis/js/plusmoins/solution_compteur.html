@@ -9,9 +9,11 @@
 <script>
 
     let toFound = Math.floor(Math.random() * 100 + 1);
+    let cpt = 1;
     let p = prompt('Entrez un nombre entre 1 et 100');
 
     while (p != '' && p != toFound) {
+        cpt++;
         if (p > toFound) {
             p = prompt("C'est moins");
         }
@@ -21,7 +23,7 @@
     }
 
     if (p == toFound) {
-        alert("Gagné ! " + toFound + " était la solution.");
+        alert("Gagné ! " + toFound + " était la solution. Vous avez trouvé en " + cpt + " coups");
     }
 
 </script>
