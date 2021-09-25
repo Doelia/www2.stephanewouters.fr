@@ -7,20 +7,24 @@
 <body>
 
 <style>
-    .game {
-        /*max-width: 1000px;*/
-        /*background: pink;*/
+    body {
+        font-family: Tahoma;
+        background: #2f2f2f;
+        color: white;
+        text-align: center;
     }
-    .grid-container {
-        /*width: 300px;*/
+    .grid {
+        margin: 10px auto;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 5px;
+        width: 300px;
     }
-    .grid-item {
+    .case {
         width: 100px;
-        height: 100px;
-        background: gray;
+        height: 80px;
+        background: #494949;
+        padding-top: 20px;
         cursor: pointer;
         font-size: 50px;
         text-align: center;
@@ -29,29 +33,27 @@
 
 <div>
     <div id="message">Joueur X, c'est à toi !</div>
-    <button onclick="replay()">Rejouer</button>
 
-
-    <div class="game">
-        <div class="grid-container">
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-        </div>
+    <div class="grid">
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
     </div>
+
+    <button onclick="replay()">Rejouer</button>
 </div>
 
 <script>
     var joueur_courant = 'X';
     var nombreCoups = 0;
 
-    let cases = document.getElementsByClassName('grid-item');
+    let cases = document.getElementsByClassName('case');
     for (let c of cases) {
         c.addEventListener('click', function() {
             if (!c.innerHTML) {
@@ -72,7 +74,7 @@
     }
 
     function replay() {
-        let cases = document.getElementsByClassName('grid-item');
+        let cases = document.getElementsByClassName('case');
         for (let c of cases) {
             c.innerHTML = '';
         }
