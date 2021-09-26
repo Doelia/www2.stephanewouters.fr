@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery demo</title>
+</head>
+<body>
+
+<div class="circle red"></div>
+<div class="circle yellow"></div>
+<div class="circle blue"></div>
+<div class="circle black"></div>
+
+<div class="center">
+    <button>WoW!</button>
+</div>
+
+<script src="jquery.min.js"></script>
+
+<script>
+    $(function() {
+        $('button').on('click', function() {
+            $('.circle.red').animate({
+                width: '200%',
+                height: '200%'
+            }, 500)
+            $('.circle.yellow').delay(400).animate({
+                width: '200%',
+                height: '200%'
+            }, {
+                delay: 1000
+            }, 500)
+            $('.circle.blue').delay(800).animate({
+                width: '200%',
+                height: '200%'
+            }, 500)
+            $('.circle.black').delay(1200).animate({
+                width: '200%',
+                height: '200%'
+            }, 500)
+            $('.circle').delay(1800).css({
+                width: 0,
+                height: 0,
+            });
+        })
+    })
+</script>
+
+<style>
+    body, html {
+        background: black;
+        width: 100%;
+        height: 100%;
+    }
+
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    .circle {
+        position: absolute;
+
+        margin: auto;
+
+        border-radius: 50%;
+
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+    }
+
+    .red {
+        background: red;
+    }
+
+    .yellow {
+        background: yellow;
+    }
+    .blue {
+        background: blue;
+    }
+    .black {
+        background: black;
+    }
+
+</style>
+
+</body>
+</html>
