@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie clicker</title>
+    <style>
+        body {
+            color: white;
+            text-align: center;
+        }
+        h2, h3 {
+            margin: 0;
+        }
+        div {
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        .cookies {
+            background: lightgray;
+            width: 300px;
+            padding: 30px;
+            background-image: url('cookie.png')
+        }
+
+        .niveau {
+            background: #9cb8c6;
+            width: 300px;
+            padding: 20px 30px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cookies">
+    <div style="font-size: 60px;">
+        <span id="cookies">0</span>
+    </div>
+    <div></div>
+
+    <button onclick="clicker()">+1 🍪</button>
+    <br>
+</div>
+
+<div class="niveau">
+    <h2>
+        Niveau <span id="niveau">1</span>
+    </h2>
+    <h3>
+        <span id="cookieparseconde"></span> cookies / secondes
+    </h3>
+    <br>
+    <button id="bouton" onclick="levelUp()">Niveau suivant pour <span id="cout"></span> 🍪</button>
+</div>
+
+<div>
+    <br>
+    <button onclick="save()">sauvegarder</button>
+    <button onclick="restore()">restaurer</button>
+</div>
+
+<script>
+
+var banque = 0;
+let niveau = 1;
+
+function clicker() {
+    banque++;
+    affichage();
+}
+
+function coutNiveau(niveau) {
+    return niveau * niveau;
+}
+
+function levelUp() {
+    let cout = coutNiveau(niveau);
+    if (banque > cout) {
+        niveau++;
+        banque -= cout;
+    }
+    affichage();
+}
+
+function cookiesParSeconde(niveau) {
+    return niveau * 2;
+}
+
+function affichage() {
+    let coutNiveauSuivant = coutNiveau(niveau + 1);
+    document.getElementById('cookies').innerHTML = banque;
+    document.getElementById('niveau').innerHTML = niveau;
+    document.getElementById('cout').innerHTML = coutNiveauSuivant;
+    document.getElementById('cookieparseconde').innerHTML = cookiesParSeconde(niveau);
+
+    if (banque > coutNiveauSuivant) {
+        document.getElementById('bouton').style.background = '#c9d2be';
+    } else {
+        document.getElementById('bouton').style.background = '#d0baba';
+    }
+}
+
+function save() {
+    localStorage.setItem('niveau', niveau);
+    localStorage.setItem('banque', banque);
+}
+
+function restore() {
+    niveau = parseInt(localStorage.getItem('niveau'));
+    banque = parseInt(localStorage.getItem('banque'));
+}
+
+setInterval(function() {
+    banque += cookiesParSeconde(niveau) / 2;
+    affichage();
+}, 500);
+
+
+affichage();
+
+</script>
+
+</body>
+</html>

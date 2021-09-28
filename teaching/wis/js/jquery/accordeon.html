@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery accordeon</title>
+</head>
+<body>
+
+<style>
+    .accordeon {
+        background: #ececec;
+        border: 1px solid #adadad;
+    }
+
+    .accordeon .titre {
+        background: #bddce7;
+        cursor: pointer;
+    }
+
+    .accordeon .titre:hover {
+        background: #d0e0e7;
+    }
+
+    .accordeon p {
+        margin: 0;
+        padding: 5px;
+    }
+
+    .container {
+        max-width: 600px;
+    }
+</style>
+
+<div class="container">
+    <div class="accordeon">
+        <p class="titre">Accordeon 1</p>
+        <p class="contenu">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, consequatur corporis cupiditate doloribus earum eos esse exercitationem, hic illum ipsum nemo nisi, nulla odit pariatur qui repudiandae sed soluta suscipit!
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur minus, sapiente. Atque blanditiis commodi dolore enim nisi praesentium quia saepe sint vel voluptates! Aliquid doloribus eius illum magnam optio quam.
+        </p>
+    </div>
+    <div class="accordeon">
+        <p class="titre">Accordeon 2</p>
+        <p class="contenu">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum, delectus est ex exercitationem fuga, illo impedit incidunt molestiae, nesciunt optio qui repellat sapiente temporibus vero? Error soluta totam veritatis!
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium culpa, cumque expedita, fuga harum illo iste iusto laboriosam libero minus mollitia nesciunt perspiciatis reiciendis saepe sint soluta tenetur ut voluptas.
+        </p>
+    </div>
+    <div class="accordeon">
+        <p class="titre">Accordeon 3</p>
+        <p class="contenu">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus doloremque excepturi laudantium odio omnis perspiciatis possimus quae rerum similique voluptates! Cupiditate dolor doloremque impedit inventore, laborum nulla obcaecati recusandae repudiandae.
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ea id impedit odit quo quos rerum ullam unde voluptates? Ad commodi debitis eligendi esse expedita hic, nobis pariatur suscipit voluptatibus!
+        </p>
+    </div>
+</div>
+
+<script src="jquery.min.js"></script>
+
+<script>
+    $(function() {
+        $('.accordeon .contenu').hide();
+        $('.accordeon').on('click', function () {
+            let my_contenu = $(this).find('.contenu');
+            $('.contenu').not(my_contenu).slideUp('fast');
+            my_contenu.slideToggle('fast');
+        });
+    })
+</script>
+
+</body>
+</html>
