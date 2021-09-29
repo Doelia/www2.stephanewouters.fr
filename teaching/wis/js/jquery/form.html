@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Réserver un billet</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Reserver un billet</h1>
+    <h2>Saisisez la liste des voyageurs :</h2>
+    <form action="">
+        <input type="text" placeholder="Votre nom">
+        <input type="text" placeholder="Votre prénom">
+        <input type="text" placeholder="Date de naissance">
+
+        <div id="voyageurs">
+        </div>
+
+        <button type="button" onclick="ajouterVoyageur()">Ajouter un voyageur</button>
+
+        <br>
+        <br>
+
+        <input type="submit" value="Réserver">
+
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    function ajouterVoyageur() {
+
+        let e = $('#voyageurs').append(`
+            <div class="voyageur">
+                <input type="text" placeholder="Nom">
+                <input type="text" placeholder="Prénom">
+                <input type="text" placeholder="Date de naissance">
+                <button type=button">supprimer</button>
+            </div>
+        `);
+
+        e.find('button').on('click', function() {
+            $(this).parent().remove();
+        })
+    }
+
+</script>
+
+</body>
+</html>

@@ -58,18 +58,9 @@
     </div>
 </div>
 
-<script src="jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="accordeon.js"></script>
 
-<script>
-    $(function() {
-        $('.accordeon .contenu').hide();
-        $('.accordeon').on('click', function () {
-            let my_contenu = $(this).find('.contenu');
-            $('.contenu').not(my_contenu).slideUp('fast');
-            my_contenu.slideToggle('fast');
-        });
-    })
-</script>
 
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercices jquery</title>
+</head>
+<body>
+
+<button id="mon_bouton">Hey</button>
+
+<ul class="menu">
+    <li>Accueil</li>
+    <li>Produits</li>
+    <li>Contact</li>
+</ul>
+
+<ul class="joueurs">
+    <li>Joueur <b>John</b> - <a href="#">Passer en vert</a></li>
+    <li>Joueur <b>Doe</b> - <a href="#">Passer en vert</a></li>
+    <li>Joueur <b>Lorem</b> - <a href="#">Passer en vert</a></li>
+</ul>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(function() {
+        // Exercice 2 + 3
+        $('#mon_bouton').on('click', function() {
+            $('body').css('background', 'blue');
+        })
+
+        // Exercice 4
+        $('ul.menu').append(`<li>À propos</li>`);
+        $('ul.menu li').eq(1).after("<li>Membres</li>");
+        $('ul.menu li').eq(0).remove();
+        $('ul.menu li').eq(2).html("Contacts");
+
+
+        // Exercice 5
+        $('ul.menu li').on('click', function() {
+            $(this).css('color', 'red');
+        });
+
+        // Exercice 6
+        $('ul.joueurs li a').on('click', function() {
+            $(this).parent().find('b').css('color', 'green');
+        });
+    })
+</script>
+
+<style>
+
+</style>
+
+</body>
+</html>
