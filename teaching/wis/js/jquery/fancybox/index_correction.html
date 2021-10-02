@@ -2,34 +2,23 @@
 <html>
 <head>
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .container { max-width: 1000px; margin-left: auto; margin-right: auto; font-family: Tahoma; font-size: 13px; }
+        .miniature { width: 200px; float: left; border: 1px solid lightgray; margin-right: 10px; margin-top: 10px; padding: 10px; cursor: pointer; }
+        img { width: 100%; }
+        .clear { clear: both; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-<div id="popup" style="display: none"></div>
-
 <div class="container">
 
-    <ul class="menu">
-        <li class=""><a href="#" onclick="changerPage('accueil')">Accueil</a></li>
-        <li><a href="#" onclick="changerPage('photos');">Photos</a></li>
-        <li><a href="#" onclick="changerPage('contact')">Contact</a></li>
-    </ul>
-    <div class="clear"></div>
-
-    <div class="page" id="accueil" >
-        <h2>Bienvenue sur mon site !</h2>
-    </div>
-
-    <div class="page" id="photos" style="display: none">
+    <div class="page" id="photos">
 
         <h2>Galerie photo</h2>
 
         <p>Cliquez sur une photo pour la voir en plus grand !</p>
-
-        <div class="main-image">
-            <img id="main-image" src="" alt="">
-        </div>
 
         <div class="miniature">
             <img alt="Rivière entre les montagnes" src="https://images.unsplash.com/photo-1504217051514-96afa06398be?crop=entropy&fit=crop&h=400&w=600">
@@ -52,23 +41,18 @@
         <div class="clear"></div>
     </div>
 
-    <div class="page" id="contact" style="display: none">
-        <h2>Contactez moi !</h2>
-        <form action="" onsubmit="return verifierFormulaire()">
-            Votre nom : <input type="text">
-            Votre adresse email : <input type="text">
-            Votre message : (<span id="compteur_caracteres">0</span>/200) <br>
-            <textarea name="message" id="message" cols="30" rows="10" onkeyup="compterCaratrere()"></textarea>
-
-            <input type="submit" value="Envoyer">
-        </form>
-    </div>
-
 </div>
 
-<div class="clear"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="app.js"></script>
+<script>
+    $("img").fancybox({
+        // hideOnContentClick: false
+    });
+</script>
+
+
 </body>
 </html>
 
