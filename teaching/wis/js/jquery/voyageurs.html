@@ -32,7 +32,7 @@
 <script>
     function ajouterVoyageur() {
 
-        let e = $('#voyageurs').append(`
+        let ligne_creee = $(`
             <div class="voyageur">
                 <input type="text" placeholder="Nom">
                 <input type="text" placeholder="Prénom">
@@ -41,7 +41,9 @@
             </div>
         `);
 
-        e.find('button').on('click', function() {
+        $('#voyageurs').append(ligne_creee);
+
+        ligne_creee.find('button').on('click', function() {
             $(this).parent().remove();
         })
     }
