@@ -21,22 +21,34 @@
         <p>Cliquez sur une photo pour la voir en plus grand !</p>
 
         <div class="miniature">
-            <img alt="Rivière entre les montagnes" src="https://images.unsplash.com/photo-1504217051514-96afa06398be?crop=entropy&fit=crop&h=400&w=600">
+            <a class="image-lien" href="https://images.unsplash.com/photo-1504217051514-96afa06398be?crop=entropy&fit=crop&h=400&w=600">
+                <img alt="Rivière entre les montagnes" src="https://images.unsplash.com/photo-1504217051514-96afa06398be?crop=entropy&fit=crop&h=400&w=600">
+            </a>
         </div>
         <div class="miniature">
-            <img alt="Mes jolies colines verdoyantes" src="https://images.unsplash.com/photo-1506260408121-e353d10b87c7?crop=entropy&fit=crop&h=400&w=600">
+            <a class="image-lien" href="https://images.unsplash.com/photo-1506260408121-e353d10b87c7?crop=entropy&fit=crop&h=400&w=600">
+                <img alt="Mes jolies colines verdoyantes" src="https://images.unsplash.com/photo-1506260408121-e353d10b87c7?crop=entropy&fit=crop&h=400&w=600">
+            </a>
         </div>
         <div class="miniature">
-            <img alt="Coucher de soleil" src="https://images.unsplash.com/photo-1466853817435-05b43fe45b39?crop=entropy&fit=crop&h=400&w=600">
+            <a class="image-lien" href="https://images.unsplash.com/photo-1466853817435-05b43fe45b39?crop=entropy&fit=crop&h=400&w=600">
+                <img alt="Coucher de soleil" src="https://images.unsplash.com/photo-1466853817435-05b43fe45b39?crop=entropy&fit=crop&h=400&w=600">
+            </a>
         </div>
         <div class="miniature">
-            <img alt="Lac et montagnes" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?crop=entropy&fit=crop&h=400&w=600">
+            <a class="image-lien" href="https://images.unsplash.com/photo-1502786129293-79981df4e689?crop=entropy&fit=crop&h=400&w=600">
+                <img alt="Lac et montagnes" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?crop=entropy&fit=crop&h=400&w=600">
+            </a>
         </div>
         <div class="miniature">
-            <img alt="Montagne et nuages" src="https://images.unsplash.com/photo-1484542603127-984f4f7d14cb?crop=entropy&fit=crop&h=400&w=600">
+            <a class="image-lien" href="https://images.unsplash.com/photo-1484542603127-984f4f7d14cb?crop=entropy&fit=crop&h=400&w=600">
+                <img alt="Montagne et nuages" src="https://images.unsplash.com/photo-1484542603127-984f4f7d14cb?crop=entropy&fit=crop&h=400&w=600">
+            </a>
         </div>
         <div class="miniature">
-            <img alt="De la poésie" src="https://images.unsplash.com/photo-1506333438925-a6203045b492?crop=entropy&fit=crop&h=400&w=600">
+            <a class="image-lien" href="https://images.unsplash.com/photo-1506333438925-a6203045b492?crop=entropy&fit=crop&h=400&w=600">
+                <img alt="De la poésie" src="https://images.unsplash.com/photo-1506333438925-a6203045b492?crop=entropy&fit=crop&h=400&w=600">
+            </a>
         </div>
         <div class="clear"></div>
     </div>
@@ -47,11 +59,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-    $("img").fancybox({
-        // hideOnContentClick: false
+    $(document).ready(function() {
+        $(".image-lien").fancybox();
     });
 </script>
-
 
 </body>
 </html>
