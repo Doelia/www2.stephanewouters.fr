@@ -5,20 +5,25 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-/**** MODIFIEZ ICI LES DONNÉES DE CONFIGURATION *****/
-$DATABASE_HOST = "mysql";
-$DATABASE_PORT = 3306;
-$DATABASE_USERNAME = "root";
-$DATABASE_PASSWORD = "motdepasse";
-$DATABASE_NAME = "nomdelabdd";
+/**** MODIFIER LES DONNÉES DE CONFIGURATION *****/
+$host = "mysql";
+$port = 3306;
+$user = "root";
+$password = "motdepasse";
+$dbname = "nomdelabdd";
 /*************************************************/
 
-$db = new PDO("mysql:dbname=$DATABASE_NAME;host=$DATABASE_HOST:$DATABASE_PORT", $DATABASE_USERNAME, $DATABASE_PASSWORD);
+$host = "mysql";
+$port = 3306;
+$user = "stephane.wouters";
+$password = "wugaxu";
+$dbname = "serveurweb_tp1_catalogue";
+
+$db = new PDO("mysql:dbname=$dbname;host=$host:$port", $user, $password);
 
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Create schema if not exists
-$r = $db->query("SELECT * FROM information_schema.tables WHERE table_schema='$DATABASE_NAME' AND table_name='products' LIMIT 1;");
+$r = $db->query("SELECT * FROM information_schema.tables WHERE table_schema='$dbname' AND table_name='products' LIMIT 1;");
 if (!$r->fetch()) {
     $db->exec("
         CREATE TABLE `products` (
