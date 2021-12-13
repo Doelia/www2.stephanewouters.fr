@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .canvas{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e9be74;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .coaster{
+            position: absolute;
+            width: 36vmin;
+            height: 3vmin;
+            background-color: #AE431E;
+            border-radius: 50%/100%;
+            bottom: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: black 2px 0.5;
+        }
+
+        .body-cup{
+            position: absolute;
+            width: 23vmin;
+            height: 30vmin;
+            background: #8A8635;
+            bottom: 55%;
+            border-radius: 10% 10% 2% 2%;
+
+        }
+
+        .cup-shine{
+            position: absolute;
+            bottom: 2px;
+            border-top: 27vmin solid #7e7a31;
+            border-right: 22vmin solid transparent;
+
+        }
+
+        .top-cup{
+            position: absolute;
+            width: 23vmin;
+            height: 4vmin;
+            background-color: #D06224;
+            bottom: 88%;
+            border-radius: 50%/100%;
+        }
+
+        .handel{
+            position: absolute;
+            width: 15vmin;
+            height: 16vmin;
+            background: #8A8635;
+            border-radius: 50%;
+            bottom:2%;
+            right: -5vmin;
+            bottom: 7vmin;
+        }
+
+        .handel-space{
+            position: absolute;
+            width: 8vmin;
+            height: 10vmin;
+            background: #e9be74;
+            border-radius: 50%;
+            bottom:2%;
+            right: 3vmin;
+            bottom: 3vmin;
+        }
+
+        .eyes{
+            position: absolute;
+            width: 2vmin;
+            height: 2vmin;
+            background-color: black;
+            border-radius: 50%;
+            bottom: 8vmin;
+            right: 5vmin;
+            box-shadow: -6vmin 0 black;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink{
+            0%{
+                transform: scale(1,0.1);
+            }
+            100%{
+                transform: scale(1,1);
+            }
+        }
+
+        .cheeks{
+            position: absolute;
+            width: 3vmin;
+            height: 1.5vmin;
+            bottom: 6vmin;
+            right: 3vmin;
+            background-color: rgb(189, 36, 36);
+            opacity: 20%;
+            border-radius: 50%;
+            box-shadow: -9vmin 0 rgb(189 36 36);
+        }
+
+        .vapours{
+            position: relative;
+            display: flex;
+            z-index: 1;
+        }
+
+        .vapours span{
+            position: relative;
+            display: block;
+            height: 22vmin;
+            background-color: aliceblue;
+            min-width: 1vmin;
+            bottom: 18vmin;
+            margin: 0 6px 100px;
+            border-radius: 50%;
+            animation: animate 5s linear infinite;
+            opacity: 0;
+            filter: blur(7px);
+            animation-delay:calc(var(--v) * -0.5s) ;
+        }
+
+        @keyframes animate{
+            0%{
+                transform: translateY(0) scaleX(1) ;
+            }
+            15%{
+                opacity: 1;
+            }
+            50%{
+                transform: translateY(-100px) scaleX(5) ;
+            }
+            95%{
+                opacity: 0;
+            }
+            100%{
+                transform: translateY(-300px) scaleX(10) ;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="canvas">
+    <div class="coaster">
+        <div class="body-cup">
+            <div class="eyes"></div>
+            <div class="cheeks"></div>
+            <div class="cup-shine"></div>
+            <div class="top-cup">
+                <div class="vapours">
+                    <span style="--v:6" ></span>
+                    <span style="--v:2" ></span>
+                    <span style="--v:8" ></span>
+                    <span style="--v:4" ></span>
+                    <span style="--v:7" ></span>
+                    <span style="--v:1" ></span>
+                    <span style="--v:5" ></span>
+                    <span style="--v:3" ></span>
+                </div>
+            </div>
+        </div>
+        <div class="handel">
+            <div class="handel-space"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
