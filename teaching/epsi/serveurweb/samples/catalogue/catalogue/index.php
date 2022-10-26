@@ -15,20 +15,22 @@
 
         <h2>Liste des produits</h2>
 
-        <p>
+        <div>
             <a href="admin" style="text-align: right">Accès admin</a>
-        </p>
+        </div>
 
-        <?php while ($ligne = $result->fetch()) { ?>
-            <div class="product">
-                <img src="<?php echo $ligne['image']; ?>" alt="">
-                <div>
-                    <h5><?php echo $ligne['name']; ?></h5>
-                    <p><?php echo $ligne['price']; ?> EUR</p>
-                    <p><?php echo $ligne['description']; ?></p>
+        <div class="products">
+            <?php while ($ligne = $result->fetch()) { ?>
+                <div class="product">
+                    <img src="<?php echo $ligne['image']; ?>" alt="">
+                    <div>
+                        <h5><?php echo $ligne['name']; ?></h5>
+                        <p><?php echo $ligne['price']; ?> EUR</p>
+                        <p><?php echo $ligne['description']; ?></p>
+                    </div>
                 </div>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
 
     </div>
     <div class="clear"></div>

@@ -9,7 +9,7 @@
 <div class="container">
 
     <div class="menu">
-        <a href="index.php">LISTE DES PRODUITS</a>
+        <a href="index.php">ADMIN</a>
         -
         <a href="../">RETOUR AU SITE</a>
     </div>

@@ -55,19 +55,21 @@ input, textarea, button {
     border: 1px solid lightgray;
 }
 
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .product {
     width: 250px;
-    float: left;
     border: 1px solid lightgray;
     margin: 10px;
     padding: 10px;
-    height: 410px;
 }
 
 img {
+    object-fit: cover;
+    height: 200px;
     width: 100%;
 }
 
-.clear {
-    clear: both;
-}
