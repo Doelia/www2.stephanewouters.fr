@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <title>Catalogue</title>
     <link rel="stylesheet" href="style.css">

@@ -6,8 +6,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 /**** MODIFIEZ ICI LES DONNÉES DE CONFIGURATION *****/
-$DATABASE_HOST = "mysql";
-$DATABASE_PORT = 3306;
+/**** Laissez les double quotes (guillemets) autour des valeurs ****/
+$DATABASE_HOST = "127.0.0.1";
+$DATABASE_PORT = "3306";
 $DATABASE_USERNAME = "root";
 $DATABASE_PASSWORD = "motdepasse";
 $DATABASE_NAME = "nomdelabdd";
@@ -18,7 +19,7 @@ $db = new PDO("mysql:dbname=$DATABASE_NAME;host=$DATABASE_HOST:$DATABASE_PORT", 
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Create schema if not exists
-$r = $db->query("SELECT * FROM information_schema.tables WHERE table_schema='$DATABASE_NAME' AND table_name='products' LIMIT 1;");
+$r = $db->query("SELECT * FROM information_schema.tables WHERE table_schema='$dbname' AND table_name='products' LIMIT 1;");
 if (!$r->fetch()) {
     $db->exec("
         CREATE TABLE `products` (
@@ -27,7 +28,7 @@ if (!$r->fetch()) {
           `price` float NOT NULL,
           `image` varchar(255) NOT NULL,
           `description` varchar(255) NOT NULL
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     ");
     $db->exec("
         INSERT INTO `products` (`id`, `name`, `price`, `image`, `description`) VALUES
