@@ -3,43 +3,58 @@
         max-width: 1000px;
     }
 
+    .category-icon {
+        height: 40px;
+        width: 40px;
+    }
+    .category-icon i {
+        line-height: 40px;
+    }
+
+    /* a href undeline effect */
     .text-hover-animated {
         background: linear-gradient(to right, #ffee83 50%, transparent 50%);
         transition: background 0.2s ease;
         background-size: 200% 100%;
         background-position: right bottom;
     }
-
     .text-hover-animated:hover {
         background-position: left bottom;
     }
 
-    .icon-hover-animated {
-        opacity: .75;
-        transition: background 0.2s ease;
+    /* Category color effect */
+    .category-icon {
+        transition: background-color 0.2s ease;
+    }
+    .category-hover:hover .category-icon {
+        background-color: #ffee83 !important;
     }
 
-    .icon-hover-animated:hover {
-        opacity: 1;
-        background: #ffee83;
+    /* Category icon zoom effect */
+    .category-hover .category-icon i {
+        transition: font-size 0.2s ease;
+    }
+    .category-hover:hover .category-icon i {
+        font-size: 20px;
     }
 
-    .bg-opacity-90 {
-        --bs-bg-opacity: 0.90;
+    /* border left effect */
+    .category-hover .border-start {
+        position: relative;
     }
-
-    .grayscale-hover-effect {
-        /*filter: grayscale(100%);*/
-        transition: filter 0.2s ease;
+    .category-hover .border-start:before {
+        content: '';
+        position: absolute;
+        height: 0;
+        width: 1px;
+        background: black;
+        top: 0;
+        left: 0;
+        transition: height 0.2s ease;
+        opacity: .5;
     }
-
-    .grayscale-hover-effect:hover {
-        filter: grayscale(0%);
-    }
-
-    .text-bg-yellow {
-        background: #F8F9FA;
-        /*color: #424200;*/
+    .category-hover:hover .border-start:before {
+        height: 100%;
     }
 
     .bg-react { background: #087EA4; }
@@ -61,5 +76,9 @@
     .bg-leaflet { background: #199900; }
     .bg-graphql { background: #E10098; }
     .bg-bootstrap { background: #6F2CF6; }
+
+    .text-bg-yellow { background: #F8F9FA; }
+
+    .bg-opacity-90 { --bs-bg-opacity: 0.90; }
 
 </style>

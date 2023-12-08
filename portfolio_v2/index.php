@@ -6,10 +6,20 @@
     <title>Stéphane Wouters</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/4ad02e5046.js" crossorigin="anonymous"></script>
+    <script src="assets/canvas/main.js" type="module" defer></script>
     <?php require('includes/style.php') ?>
 </head>
 <body data-bs-theme="light">
-<div class="container">
+
+<div>
+    <canvas class="h-100 w-100 position-fixed opacity-25" id="canvas"></canvas>
+    <div id="canvas_assets" class="d-none">
+        <img src="assets/canvas/assets/ant.png" alt="" id="ant">
+        <img src="assets/canvas/assets/fish.png" alt="" id="fish">
+    </div>
+</div>
+
+<div class="container position-relative">
     <div class="row">
 
         <div class="col-6 pt-5">
@@ -18,13 +28,9 @@
 
         <div class="col">
 
-<!--            <div>-->
-<!--                <button onclick="toggleTheme()"></button>-->
-<!--            </div>-->
-
-            <div class="my-5">
+            <div class="my-5 category-hover">
                 <div class="d-flex align-items-center">
-                    <div class="text-bg-light rounded text-center" style="height: 40px; width: 40px; line-height: 40px">
+                    <div class="text-bg-light rounded text-center category-icon" style="height: 40px; width: 40px; line-height: 40px">
                         <i class="fa-solid fa-user-chef opacity-25"></i>
                     </div>
                     <div class="col ms-3">
@@ -35,13 +41,13 @@
                 <div class="m-3 border-start border-gray ps-3 pt-1">
 <!--                    <div class="opacity-75 small fst-italic">Since 2015</div>-->
                     <span class="fst-italic fw-light">Lead developer -</span>
-                    <a href="https://poisson-soluble.com" class="text-hover-animated text-body fw-bold">Poisson Soluble</a>
+                    <a href="https://poisson-soluble.com" class="text-hover-animated text-body fw-bold canvas-turtle-trigger" data-turtle_type="fishes">Poisson Soluble</a>
                 </div>
             </div>
 
-            <div class="my-5">
+            <div class="my-5 category-hover">
                 <div class="d-flex align-items-center">
-                    <div class="text-bg-light rounded text-center" style="height: 40px; width: 40px; line-height: 40px">
+                    <div class="text-bg-light rounded text-center category-icon" style="height: 40px; width: 40px; line-height: 40px">
                         <i class="fa-solid fa-chalkboard-user opacity-25"></i>
                     </div>
                     <div class="col ms-3">
@@ -71,14 +77,14 @@
                 </div>
             </div>
 
-            <div class="my-5">
+            <div class="my-5 category-hover">
                 <div class="d-flex align-items-center">
-                    <div class="text-bg-light rounded text-center" style="height: 40px; width: 40px; line-height: 40px">
+                    <div class="text-bg-light rounded text-center category-icon">
                         <i class="fa-solid fa-seedling opacity-25"></i>
                     </div>
                     <div class="col ms-3">
                         <h2 class="text-uppercase fs-5 mb-0 fw-light">Side projects</h2>
-                        <div class="opacity-75 small fst-italic">I made stuff since 2007</div>
+                        <div class="opacity-75 small fst-italic">I made stuff, since 2007</div>
                     </div>
                 </div>
 
@@ -86,7 +92,7 @@
                     <ul class="list-unstyled d-flex flex-column gap-1">
                         <li>
                             <span class="fst-italic fw-light">2023 -</span>
-                            <a href="https://ants.doelia.fr" class="text-hover-animated text-body fw-bold">Ants simulator</a>
+                            <a href="https://ants.doelia.fr" class="text-hover-animated text-body fw-bold canvas-turtle-trigger" data-turtle_type="ants">Ants simulator</a>
                         </li>
                         <li>
                             <span class="fst-italic fw-light">2023 -</span>
@@ -109,9 +115,9 @@
                 </div>
             </div>
 
-            <div class="my-5  grayscale-hover-effect">
+            <div class="my-5 grayscale-hover-effect category-hover">
                 <div class="d-flex align-items-center">
-                    <div class="text-bg-yellow rounded text-center" style="height: 40px; width: 40px; line-height: 40px">
+                    <div class="text-bg-light rounded text-center category-icon">
                         <i class="fa-solid fa-rocket opacity-25"></i>
                     </div>
                     <div class="col ms-3">
@@ -138,11 +144,11 @@
                         </div>
                         <div>
                             <span class="fw-bold me-1">Backend</span>
-                            <span class="fst-italic fw-light">Node.JS, Python, bash, Golang</span>
+                            <span class="fst-italic fw-light">Node.JS, Python, Bash, Golang</span>
                         </div>
                         <div>
                             <span class="fw-bold me-1">Front-end</span>
-                            <span class="fst-italic fw-light">Vue.js, Angular, Leaflet, Openlayers, Socket.io, GraphQL, Figma</span>
+                            <span class="fst-italic fw-light">Vue.js, Angular, Leaflet, Socket.io, GraphQL</span>
                         </div>
                     </div>
 
