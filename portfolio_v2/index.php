@@ -8,8 +8,11 @@
     <script src="https://kit.fontawesome.com/4ad02e5046.js" crossorigin="anonymous"></script>
     <script src="assets/canvas/main.js" type="module" defer></script>
     <?php require('includes/style.php') ?>
+    <script type="module">
+        import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
+    </script>
 </head>
-<body data-bs-theme="light">
+<body data-bs-theme="dark">
 
 <div>
     <canvas class="h-100 w-100 position-fixed opacity-25" id="canvas"></canvas>
@@ -19,10 +22,10 @@
     </div>
 </div>
 
-<div class="container position-relative">
+<div class="container position-relative p-4 p-sm-5">
     <div class="row">
 
-        <div class="col-6 pt-5">
+        <div class="col-lg-5 p-4">
             <?php require('includes/profile.php') ?>
         </div>
 
@@ -39,7 +42,6 @@
                     </div>
                 </div>
                 <div class="m-3 border-start border-gray ps-3 pt-1">
-<!--                    <div class="opacity-75 small fst-italic">Since 2015</div>-->
                     <span class="fst-italic fw-light">Lead developer -</span>
                     <a href="https://poisson-soluble.com" class="text-hover-animated text-body fw-bold canvas-turtle-trigger" data-turtle_type="fishes">Poisson Soluble</a>
                 </div>
@@ -110,7 +112,7 @@
                         </li>
                     </ul>
 
-                    <a href="projects.html" class="text-body opacity-50 fst-italic">View all...</a>
+                    <a href="projects.php" class="text-body opacity-50 fst-italic">View all...</a>
 
                 </div>
             </div>

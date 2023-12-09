@@ -1,6 +1,9 @@
 <style>
+    body { --color-hover: #ffee83; }
+    body[data-bs-theme="dark"] { --color-hover: #706233; }
+
     .container {
-        max-width: 1000px;
+        max-width: 1200px;
     }
 
     .category-icon {
@@ -13,13 +16,23 @@
 
     /* a href undeline effect */
     .text-hover-animated {
-        background: linear-gradient(to right, #ffee83 50%, transparent 50%);
+        background: linear-gradient(to right, var(--color-hover) 50%, transparent 50%);
         transition: background 0.2s ease;
-        background-size: 200% 100%;
+        background-size: 205% 100%;
         background-position: right bottom;
     }
     .text-hover-animated:hover {
-        background-position: left bottom;
+        background-position: left bottom !important;
+    }
+
+    /* social link effect */
+    .icon-hover-animated {
+        opacity: .75;
+        transition: background 0.2s ease;
+    }
+    .icon-hover-animated:hover {
+        opacity: 1;
+        background: var(--color-hover);
     }
 
     /* Category color effect */
@@ -28,14 +41,6 @@
     }
     .category-hover:hover .category-icon {
         background-color: #ffee83 !important;
-    }
-
-    /* Category icon zoom effect */
-    .category-hover .category-icon i {
-        transition: font-size 0.2s ease;
-    }
-    .category-hover:hover .category-icon i {
-        font-size: 20px;
     }
 
     /* border left effect */
@@ -47,7 +52,7 @@
         position: absolute;
         height: 0;
         width: 1px;
-        background: black;
+        background: #6e5500;
         top: 0;
         left: 0;
         transition: height 0.2s ease;
@@ -56,6 +61,7 @@
     .category-hover:hover .border-start:before {
         height: 100%;
     }
+
 
     .bg-react { background: #087EA4; }
     .bg-html { background: #E65C26; }
