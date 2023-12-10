@@ -2,7 +2,10 @@
     .avatar { width: 150px; height: 150px; }
     @media (min-width: 768px) { .avatar { width: 200px; height: 200px; } }
 </style>
-<img src="assets/avatar.png" alt="" class="col-6 col-md-3 avatar">
+
+<a href="/" data-turbo-frame="frame_container">
+    <img src="assets/avatar.png" alt="" class="col-6 col-md-3 avatar">
+</a>
 
 <h1 class="fs-1 fw-bold mb-0 mt-3">Stéphane Wouters</h1>
 <div class="fw-light">@doelia</div>

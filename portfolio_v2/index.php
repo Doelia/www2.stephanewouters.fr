@@ -7,9 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/4ad02e5046.js" crossorigin="anonymous"></script>
     <script src="assets/canvas/main.js" type="module" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <?php require('includes/style.php') ?>
-    <script type="module">
-        import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
+    <script type="module" src="assets/turbo.js"> </script>
+    <script>
+        function go() {
+            // gsap.to(document.querySelector('.row'), { x: 200 })
+        }
     </script>
 </head>
 <body data-bs-theme="dark">
@@ -29,7 +33,8 @@
             <?php require('includes/profile.php') ?>
         </div>
 
-        <div class="col">
+        <div class="col content">
+            <turbo-frame id="frame_container" data-turbo-action="advance">
 
             <div class="my-5 category-hover">
                 <div class="d-flex align-items-center">
@@ -112,7 +117,7 @@
                         </li>
                     </ul>
 
-                    <a href="projects.php" class="text-body opacity-50 fst-italic">View all...</a>
+                    <a rel="next" href="projects.php" class="text-body opacity-50 fst-italic">View all...</a>
 
                 </div>
             </div>
@@ -157,7 +162,8 @@
                 </div>
             </div>
 
-    </div>
+            </turbo-frame>
+        </div>
 </div>
 <h1></h1>
 </body>

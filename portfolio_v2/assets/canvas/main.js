@@ -49,7 +49,11 @@ function initEngine() {
 
 }
 
-initEngine();
+addEventListener("turbo:load", (event) => {
+    console.log('canvas.initEvents');
+    initEvents();
+})
+
 initCanvas({entities});
-initEvents();
+initEngine();
 
