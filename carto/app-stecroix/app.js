@@ -12,7 +12,7 @@ var map = new mapboxgl.Map({
 map.on('load', () => {
     map.addSource('source_suque', {
         type: 'image',
-        url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png',
+        url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/suque.png?version=cors',
         coordinates: [
             [p1[1], p1[2]],
             [p1[3], p1[2]],
@@ -28,7 +28,7 @@ map.on('load', () => {
 
     map.addSource('source_ceceles', {
         type: 'image',
-        url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles.png',
+        url: 'https://stephane-tests.s3.eu-west-3.amazonaws.com/maps/ceceles.png?version=cors',
         coordinates: [
             [p2[1], p2[2]],
             [p2[3], p2[2]],
